@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teachers</title>
+    <!-- <link rel="stylesheet" href="css/teachers.css" /> -->
+    <style>
+      html,
+      body {
+        height: 100%; /* Full height */
+        margin: 0; /* Remove default margins */
+        padding: 0; /* Remove default padding */
+        font-family: Arial, sans-serif;
+        background-image: url("https://khamsat.hsoubcdn.com/images/services/867104/e93aaecfce076933b9d9732095df9fcf.jpg");
+        background-size: cover; /* Cover the entire background */
+        background-position: center; /* Center the background image */
+        overflow-y: scroll; /* Enable vertical scrolling */
+      }
+
+      nav {
+        background-color: #8a8385; /* Navigation bar background color */
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove list points */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center the items */
+      }
+
+      nav ul li {
+        margin: 0 15px; /* Space between items */
+      }
+
+      nav ul li a {
+        color: white; /* Text color */
+        text-decoration: none; /* Remove underline */
+        padding: 8px 15px; /* Padding for links */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Transition effect */
+      }
+
+      nav ul li a:hover {
+        background-color: #4a7d74; /* Background color on hover */
+      }
+
+      h1 {
+        text-align: center; /* Center the header */
+        margin: 20px 0; /* Margin around the header */
+      }
+
+      .teachers-list {
+        display: flex; /* Enable flexbox layout */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        padding: 20px; /* Padding around the list */
+        margin: 18px; /* Margin around the list */
+      }
+
+      .teacher {
+        background-color: rgba(
+          207,
+          203,
+          203,
+          0.9
+        ); /* Semi-transparent background color */
+        margin: 10px; /* Space between cards */
+        width: 200px; /* Fixed width */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        cursor: pointer; /* Show pointer on hover */
+        perspective: 1000px; /* Enable 3D perspective for flip effect */
+      }
+
+      .teacher-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s; /* Smooth transition for flip */
+        transform-style: preserve-3d; /* Preserve 3D effect */
+      }
+
+      .teacher-front {
+        background-color: rgba(
+          207,
+          203,
+          203,
+          0.9
+        ); /* Same semi-transparent background color */
+        color: black;
+        text-align: center; /* Center text inside */
+        height: 100%; /* Make sure it takes full height */
+        backface-visibility: hidden; /* Hide front face when flipped */
+      }
+
+      .teacher-front h3 {
+        margin: 10px 0; /* Add margin for the name */
+        font-weight: bold; /* Bold text for name */
+      }
+
+      .teacher-back {
+        background-color: rgba(
+          207,
+          203,
+          203,
+          0.9
+        ); /* Same semi-transparent background color */
+        color: black;
+        transform: rotateY(180deg); /* Flip back side */
+        text-align: center; /* Center text inside back */
+        padding: 15px; /* Internal padding */
+        backface-visibility: hidden; /* Hide back face when not visible */
+      }
+
+      .teacher-back h3 {
+        margin: 10px 0; /* Add margin for the name on the back */
+      }
+
+      .teacher:hover .teacher-inner {
+        transform: rotateY(180deg); /* Rotate on hover */
+      }
+    </style>
+    <script>
+      function loadNav() {
+        fetch("nav.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("nav-container").innerHTML = data;
+          });
+      }
+    </script>
+  </head>
+  <body onload="loadNav()">
+    <div id="nav-container"></div>
+    <!-- Navigation will load here -->
+
+    <h1>Teachers List</h1>
+    <div class="teachers-list">
+      <div class="teacher" onclick="window.location='courses.html#ahmed';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Ahmed Ali</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Ahmed Ali</h3>
+            <p>Specialization: Mathematics</p>
+            <p>Years of Experience: 5 years</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher" onclick="window.location='courses.html#fatima';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Fatima Zahra</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Fatima Zahra</h3>
+            <p>Specialization: Science</p>
+            <p>Years of Experience: 3 years</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher" onclick="window.location='courses.html#mohamed';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Mohamed Said</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Mohamed Said</h3>
+            <p>Specialization: Arabic Language</p>
+            <p>Years of Experience: 7 years</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher" onclick="window.location='courses.html#sara';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Sara Youssef</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Sara Youssef</h3>
+            <p>Specialization: English Language</p>
+            <p>Years of Experience: 4 years</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher" onclick="window.location='courses.html#youssef';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Youssef Mahmoud</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Youssef Mahmoud</h3>
+            <p>Specialization: Art Education</p>
+            <p>Years of Experience: 6 years</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher" onclick="window.location='courses.html#layla';">
+        <div class="teacher-inner">
+          <div class="teacher-front">
+            <h3>Layla Hassan</h3>
+          </div>
+          <div class="teacher-back">
+            <h3>Layla Hassan</h3>
+            <p>Specialization: History</p>
+            <p>Years of Experience: 8 years</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleInfo(element) {
+        const inner = element.querySelector(".teacher-inner");
+        inner.style.transform =
+          inner.style.transform === "rotateY(180deg)"
+            ? "rotateY(0deg)"
+            : "rotateY(180deg)";
+      }
+    </script>
+  </body>
+</html>

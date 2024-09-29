@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <style>
+      html,
+      body {
+        height: 100%; /* تأخذ ارتفاع كامل الشاشة */
+        margin: 0; /* إزالة الهوامش الافتراضية */
+        padding: 0; /* إزالة الحشو الافتراضي */
+        font-family: Arial, sans-serif;
+        background-image: url("https://khamsat.hsoubcdn.com/images/services/867104/e93aaecfce076933b9d9732095df9fcf.jpg");
+        background-size: initial; /* تغطي الصورة كامل الخلفية */
+        background-position: center; /* مركز الصورة */
+        display: flex;
+        justify-content: center; /* محاذاة العناصر أفقياً في المنتصف */
+        align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+      }
+
+      form {
+        background-color: #606165;
+        padding: 46px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        transition: transform 1.3s, border-radius 1.3s; /* تأثير التحويل والتدوير */
+      }
+
+      form:hover {
+        transform: scale(1.05); /* تكبير النموذج عند التمرير */
+        border-radius: 50px; /* جعل الزوايا دائرية أكثر عند التمرير */
+        border: 2px solid black;
+      }
+
+      label,
+      input {
+        display: block;
+        width: 100%;
+        margin-bottom: -8px; /* استخدم قيمة موجبة لتحسين التباعد */
+        height: 30px;
+        font-family: Arial, sans-serif;
+      }
+      label {
+        color: #e1e1e1;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 8px; /* إضافة padding لزيادة المساحة داخل الحقول */
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px; /* إضافة padding لزر الدخول */
+        width: 65px; /* تعيين عرض الزر إلى 35 بكسل */
+        margin: 0 auto; /* استخدام الهوامش التلقائية لتوسيط الزر */
+        display: block; /* التأكد من أن الزر كعنصر كتلة */
+        text-decoration: none;
+        transition: background-color 0.3s; /* تأثير تغيير لون الخلفية */
+      }
+      button:hover {
+        background-color: #e1e1e1; /* لون خلفية الزر عند التمرير فوقه */
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      function validateForm(event) {
+        // منع الإرسال الافتراضي للنموذج
+        event.preventDefault();
+
+        // الحصول على القيم المدخلة
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // التحقق من ملء الحقول
+        if (username === "" || password === "") {
+          alert("Please enter both username and password.");
+          return;
+        }
+
+        // إذا كانت جميع الحقول صحيحة، انتقل إلى teachers.html
+        window.location.href = "teachers.html";
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="validateForm(event)">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required /><br /><br />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
+
+      <button type="submit">Login</button>
+      <!-- الزر الآن يقوم بتقديم النموذج -->
+    </form>
+  </body>
+</html>

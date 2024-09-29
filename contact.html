@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <!-- <link rel="stylesheet" href="css/contact.css" /> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      nav {
+        background-color: #8a8385; /* Navigation bar background color */
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove list points */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center the items */
+      }
+
+      nav ul li {
+        margin: 0 15px; /* Space between items */
+      }
+
+      nav ul li a {
+        color: white; /* Text color */
+        text-decoration: none; /* Remove underline */
+        padding: 8px 15px; /* Padding for links */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Transition effect */
+      }
+
+      nav ul li a:hover {
+        background-color: #4a7d74; /* Background color on hover */
+      }
+
+      header {
+        text-align: center; /* Center the header */
+        margin: 20px 0; /* Margin around the header */
+      }
+
+      .contact-form-container {
+        width: 100%;
+        max-width: 600px; /* Maximum width for the form */
+        margin: auto; /* Center the form */
+        padding: 20px; /* Padding around the form */
+        background-color: white; /* Background color for the form */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        border-radius: 8px; /* Rounded corners */
+      }
+
+      .form-group {
+        margin-bottom: 15px; /* Space between form groups */
+      }
+
+      label {
+        display: block; /* Make labels block-level */
+        margin-bottom: 5px; /* Space between label and input */
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%; /* Full width for inputs */
+        padding: 10px; /* Padding inside inputs */
+        border: 1px solid #ccc; /* Border for inputs */
+        border-radius: 4px; /* Rounded corners */
+        box-sizing: border-box; /* Include padding in total width */
+      }
+
+      button {
+        padding: 10px 15px; /* Padding for the button */
+        background-color: #4a7d74; /* Button background color */
+        color: white; /* Text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Transition effect */
+      }
+
+      button:hover {
+        background-color: #3a5b5f; /* Darker shade on hover */
+      }
+
+      footer {
+        text-align: center; /* Center the footer text */
+        margin-top: 20px; /* Margin above the footer */
+        padding: 10px; /* Padding inside the footer */
+        background-color: #8a8385; /* Footer background color */
+        color: white; /* Footer text color */
+      }
+    </style>
+    <script>
+      function loadNav() {
+        fetch("nav.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("nav-container").innerHTML = data;
+          });
+      }
+    </script>
+  </head>
+  <body onload="loadNav()">
+    <div id="nav-container"></div>
+    <!-- Navigation will load here -->
+
+    <header>
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Please fill out the form below:</p>
+    </header>
+
+    <div class="contact-form-container">
+      <form action="#" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Your Institution. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

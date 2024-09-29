@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    <!-- <link rel="stylesheet" href="css/courses.css" /> -->
+    <style>
+      /* Reset some default styles */
+      * {
+        box-sizing: border-box;
+        margin: 7px;
+        padding: 0;
+        text-decoration: none;
+        color: black;
+      }
+      h3 {
+        color: white;
+      }
+
+      /* Full height and background */
+      html,
+      body {
+        height: 100%; /* Full height */
+        margin: 0; /* Remove default margins */
+        padding: 0; /* Remove default padding */
+        font-family: Arial, sans-serif;
+        background-image: url("https://khamsat.hsoubcdn.com/images/services/867104/e93aaecfce076933b9d9732095df9fcf.jpg");
+        background-size: cover; /* Cover the entire background */
+        background-position: center; /* Center the background image */
+        overflow-y: scroll; /* Enable vertical scrolling */
+      }
+
+      /* Navigation bar styles */
+      nav {
+        background-color: #8a8385; /* Navigation bar background color */
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove list points */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center the items */
+      }
+
+      nav ul li {
+        margin: 0 15px; /* Space between items */
+      }
+
+      nav ul li a {
+        color: white; /* Text color */
+        text-decoration: none; /* Remove underline */
+        padding: 8px 15px; /* Padding for links */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Transition effect */
+      }
+
+      nav ul li a:hover {
+        background-color: #4a7d74; /* Background color on hover */
+      }
+
+      /* Header styles */
+      header {
+        text-align: center; /* Center header content */
+        margin: 20px 0; /* Margin around header */
+        padding: 20px; /* Padding around header */
+      }
+
+      /* Courses container styles */
+      .courses-container {
+        max-width: 800px; /* Maximum width of content */
+        margin: 0 auto; /* Center the content */
+        padding: 20px; /* Padding around content */
+        background-color: #8a838573; /* White background for content area */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .course {
+        margin-bottom: 20px; /* Space between courses */
+        border-bottom: 1px solid #ddd; /* Divider line */
+        padding-bottom: 10px; /* Padding below each course */
+      }
+
+      .course h3 {
+        color: #000000; /* Course title color */
+        margin-bottom: 5px; /* Space below course title */
+      }
+
+      /* Footer styles */
+      footer {
+        text-align: center; /* Center footer text */
+        padding: 20px; /* Padding around footer */
+        background-color: #8a8385; /* Footer background color */
+        color: white; /* Footer text color */
+        position: relative; /* Positioning for footer */
+        bottom: 0; /* Align footer to the bottom */
+        width: 100%; /* Full width */
+      }
+    </style>
+    <script>
+      function loadNav() {
+        fetch("nav.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("nav-container").innerHTML = data;
+
+            // Now process the hash after the navigation has been loaded
+            highlightSectionFromHash();
+          });
+      }
+
+      function highlightSectionFromHash() {
+        const hash = window.location.hash;
+        if (hash) {
+          const section = document.querySelector(hash);
+          if (section) {
+            section.style.display = "block"; // Show the section
+            section.classList.add("highlight"); // Add highlight class for styling
+            setTimeout(() => {
+              section.classList.remove("highlight"); // Remove highlight after a few seconds
+            }, 3000); // Highlight duration in milliseconds
+          }
+        }
+      }
+
+      window.onload = function () {
+        loadNav(); // Load the navigation and then highlight the section
+      };
+    </script>
+    <style>
+      .highlight {
+        border: 2px solid #680000;
+        padding: 10px;
+        background-color: rgba(255, 204, 0, 0.1);
+        margin-top: 20px;
+      }
+
+      .course-details {
+        border: 2px solid #8a8385;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin-top: 20px;
+        font-size: 1.2em;
+        border-radius: 8px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-container"></div>
+    <!-- Navigation will load here -->
+
+    <header>
+      <h1>Explore Our Courses</h1>
+    </header>
+
+    <div class="courses-container">
+      <h2>Course List</h2>
+
+      <div class="course">
+        <h3>Mathematics</h3>
+        <p>
+          This course covers algebra, geometry, calculus, and statistics.
+          Students will develop problem-solving skills and a deep understanding
+          of mathematical concepts.
+        </p>
+        <p><strong>Duration:</strong> 10 weeks</p>
+        <div id="ahmed" class="course-details">
+          <h2>Mathematics Course Details</h2>
+          <p class="highlight">
+            This specialized course in Mathematics covers key areas including:
+          </p>
+          <ul>
+            <li>Algebra</li>
+            <li>Geometry</li>
+            <li>Calculus</li>
+            <li>Statistics</li>
+          </ul>
+          <p>
+            Students will develop essential skills for problem-solving and
+            logical reasoning, preparing them for further studies in mathematics
+            or related fields.
+          </p>
+        </div>
+      </div>
+
+      <div class="course">
+        <h3>Science</h3>
+        <p>
+          This course provides an overview of the fundamental principles of
+          physics, chemistry, and biology.
+        </p>
+        <p><strong>Duration:</strong> 8 weeks</p>
+        <div id="fatima" class="course-details">
+          <h2>Science Course Details</h2>
+          <p class="highlight">In this course, students will explore:</p>
+          <ul>
+            <li>Physics Principles</li>
+            <li>Chemical Reactions</li>
+            <li>Biological Systems</li>
+          </ul>
+          <p>
+            The focus is on understanding scientific methods and their
+            applications in real-world scenarios.
+          </p>
+        </div>
+      </div>
+
+      <div class="course">
+        <h3>Arabic Language</h3>
+        <p>
+          This course emphasizes the understanding of Arabic grammar,
+          vocabulary, and literature.
+        </p>
+        <p><strong>Duration:</strong> 12 weeks</p>
+        <div id="mohamed" class="course-details">
+          <h2>Arabic Language Course Details</h2>
+          <p class="highlight">The Arabic Language course includes:</p>
+          <ul>
+            <li>Grammar Rules</li>
+            <li>Vocabulary Expansion</li>
+            <li>Literary Analysis</li>
+          </ul>
+          <p>
+            Students will improve their language skills and appreciate Arabic
+            literature.
+          </p>
+        </div>
+      </div>
+
+      <div class="course">
+        <h3>English Language</h3>
+        <p>
+          This course focuses on enhancing English speaking, writing, and
+          comprehension skills.
+        </p>
+        <p><strong>Duration:</strong> 10 weeks</p>
+        <div id="sara" class="course-details">
+          <h2>English Language Course Details</h2>
+          <p class="highlight">In this English course, students will learn:</p>
+          <ul>
+            <li>Advanced Grammar</li>
+            <li>Comprehension Techniques</li>
+            <li>Creative Writing</li>
+          </ul>
+          <p>
+            This course aims to build confidence in communication and improve
+            overall language proficiency.
+          </p>
+        </div>
+      </div>
+
+      <div class="course">
+        <h3>Art Education</h3>
+        <p>
+          This course encourages creativity through various forms of artistic
+          expression.
+        </p>
+        <p><strong>Duration:</strong> 6 weeks</p>
+        <div id="youssef" class="course-details">
+          <h2>Art Education Course Details</h2>
+          <p class="highlight">The Art Education course covers:</p>
+          <ul>
+            <li>Drawing Techniques</li>
+            <li>Painting Styles</li>
+            <li>Art History</li>
+          </ul>
+          <p>
+            Students will explore different mediums and develop their artistic
+            skills.
+          </p>
+        </div>
+      </div>
+
+      <div class="course">
+        <h3>History</h3>
+        <p>
+          This course offers insights into major historical events and their
+          impact on modern society.
+        </p>
+        <p><strong>Duration:</strong> 8 weeks</p>
+        <div id="layla" class="course-details">
+          <h2>History Course Details</h2>
+          <p class="highlight">The History course includes discussions on:</p>
+          <ul>
+            <li>Ancient Civilizations</li>
+            <li>World Wars</li>
+            <li>Modern History</li>
+          </ul>
+          <p>
+            This course helps students understand the context and significance
+            of historical events.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Your Institution. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
